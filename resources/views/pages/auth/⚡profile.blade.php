@@ -96,54 +96,48 @@ new #[Layout('layouts.app')] class extends Component {
             {{--  --}}
             <div class="menu-grid">
                 <div class="menu-item">
-                    <div class="menu-icon-box" style="color: #ff9800; background: #fff3e0;"><i data-lucide="ticket"></i>
+                    <div class="menu-icon-box" style="color: #ff9800; background: #fff3e0;"><i data-lucide="cog"></i>
                     </div>
-                    <span class="menu-text">Gratis Ongkir dan Voucher</span>
+                    <span class="menu-text">Pengaturan Sistem</span>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-icon-box" style="color: #00bcd4; background: #e0f7fa;"><i
-                            data-lucide="smartphone"></i></div>
-                    <span class="menu-text">Pulsa, Tagihan, dan Tiket</span>
+                    <div class="menu-icon-box" style="color: #00bcd4; background: #e0f7fa;">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <span class="menu-text">User List</span>
                 </div>
                 <div class="menu-item">
                     <div class="menu-icon-box" style="color: #f44336; background: #ffebee;"><i
                             data-lucide="shopping-bag"></i></div>
-                    <span class="menu-text">Shopee Mall</span>
+                    <span class="menu-text">Pelanggan</span>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-icon-box" style="color: #ff5722; background: #fbe9e7;"><i data-lucide="zap"></i>
+                    <div class="menu-icon-box" style="color: #ff5722; background: #fbe9e7;"><i data-lucide="album"></i>
                     </div>
-                    <span class="menu-text">ShopeePay Sekitarmu</span>
+                    <span class="menu-text">Supplier</span>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-icon-box" style="color: #4caf50; background: #e8f5e9;"><i data-lucide="moon"></i>
+                    <div class="menu-icon-box" style="color: #4caf50; background: #e8f5e9;"><i data-lucide="hotel"></i>
                     </div>
-                    <span class="menu-text">Shopee Barokah</span>
+                    <span class="menu-text">Cabang</span>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-icon-box" style="color: #2196f3; background: #e3f2fd;"><i data-lucide="gift"></i>
+                    <div class="menu-icon-box" style="color: #2196f3; background: #e3f2fd;">
+                        <i data-lucide="contact-round"></i>
                     </div>
-                    <span class="menu-text">Hadiah Shopee</span>
+                    <span class="menu-text">User Groups</span>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-icon-box" style="color: #ff5722; background: #fff5f2;"><i
-                            data-lucide="utensils-crossed"></i></div>
-                    <span class="menu-text">ShopeeFood</span>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-icon-box" style="color: #3f51b5; background: #e8eaf6;"><i
-                            data-lucide="map-pin"></i></div>
-                    <span class="menu-text">Shopee Pilih Lokal</span>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-icon-box" style="color: #ee4d2d; background: #fff5f2;"><i
-                            data-lucide="credit-card"></i></div>
-                    <span class="menu-text">SPayLater</span>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-icon-box" style="color: #ff5722; background: #fff5f2;"><i data-lucide="grid"></i>
+                    <div class="menu-icon-box" style="color: #ee4d2d; background: #fff5f2;">
+                        <i data-lucide="car"></i>
                     </div>
-                    <span class="menu-text">Lihat Semua</span>
+                    <span class="menu-text">Kendaraan</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon-box" style="color: #ff5722; background: #fff5f2;">
+                        <i data-lucide="grid"></i>
+                    </div>
+                    <span class="menu-text">Info & Pemberitahuan</span>
                 </div>
             </div>
         </div>
@@ -285,7 +279,8 @@ new #[Layout('layouts.app')] class extends Component {
 
     {{-- Logout --}}
     <div style="margin: 0 15px 30px 15px; padding-bottom: 20px;">
-        <button wire:click="logout" style="width: 100%; background: white; color: #ee4d2d; border: 1px solid #ee4d2d; padding: 12px; border-radius: 4px; font-weight: 600; font-size: 14px; cursor: pointer; text-align: center; display: block;">
+        <button wire:click="logout"
+            style="width: 100%; background: white; color: #ee4d2d; border: 1px solid #ee4d2d; padding: 12px; border-radius: 4px; font-weight: 600; font-size: 14px; cursor: pointer; text-align: center; display: block;">
             Log Out
         </button>
     </div>

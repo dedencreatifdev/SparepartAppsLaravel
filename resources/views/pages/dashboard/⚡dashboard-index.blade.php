@@ -67,13 +67,9 @@ new #[Layout('layouts.app')] class extends Component
     <div class="wallet-section">
         <div class="wallet-card">
             <div class="wallet-item">
-                <i data-lucide="scan" class="wallet-icon"></i>
-                <span class="wallet-label">Scan</span>
-            </div>
-            <div class="wallet-item">
                 <div style="display: flex; align-items: center; gap: 4px;">
                     <i data-lucide="wallet" style="width: 14px; height: 14px; color: #ee4d2d;"></i>
-                    <span class="wallet-label">Rp19.000</span>
+                    <span class="wallet-label">Rp0.00</span>
                 </div>
                 <span class="wallet-subtext">Isi Saldo</span>
             </div>
@@ -96,19 +92,19 @@ new #[Layout('layouts.app')] class extends Component
     <div class="menu-grid">
         <div class="menu-item">
             <div class="menu-icon-box" style="color: #ff9800; background: #fff3e0;"><i data-lucide="ticket"></i></div>
-            <span class="menu-text">Gratis Ongkir dan Voucher</span>
+            <span class="menu-text">Estimasi</span>
         </div>
         <div class="menu-item">
             <div class="menu-icon-box" style="color: #00bcd4; background: #e0f7fa;"><i data-lucide="smartphone"></i></div>
-            <span class="menu-text">Pulsa, Tagihan, dan Tiket</span>
+            <span class="menu-text">Katalog</span>
         </div>
         <div class="menu-item">
             <div class="menu-icon-box" style="color: #f44336; background: #ffebee;"><i data-lucide="shopping-bag"></i></div>
-            <span class="menu-text">Shopee Mall</span>
+            <span class="menu-text">Booking</span>
         </div>
         <div class="menu-item">
-            <div class="menu-icon-box" style="color: #ff5722; background: #fbe9e7;"><i data-lucide="zap"></i></div>
-            <span class="menu-text">ShopeePay Sekitarmu</span>
+            <div class="menu-icon-box" style="color: #ff5722; background: #fbe9e7;"><i data-lucide="car"></i></div>
+            <span class="menu-text">Kendaraan</span>
         </div>
         <div class="menu-item">
             <div class="menu-icon-box" style="color: #4caf50; background: #e8f5e9;"><i data-lucide="moon"></i></div>

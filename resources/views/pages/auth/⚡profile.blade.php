@@ -11,6 +11,15 @@ new #[Layout('layouts.app')] class extends Component {
     {
         $this->user = Auth::user();
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        session()->invalidate();
+        session()->regenerateToken();
+
+        return $this->redirect(route('login'), navigate: true);
+    }
 };
 ?>
 @push('styles')
@@ -272,6 +281,13 @@ new #[Layout('layouts.app')] class extends Component {
                 <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: #9e9e9e;"></i>
             </div>
         </div>
+    </div>
+
+    {{-- Logout --}}
+    <div style="margin: 0 15px 30px 15px; padding-bottom: 20px;">
+        <button wire:click="logout" style="width: 100%; background: white; color: #ee4d2d; border: 1px solid #ee4d2d; padding: 12px; border-radius: 4px; font-weight: 600; font-size: 14px; cursor: pointer; text-align: center; display: block;">
+            Log Out
+        </button>
     </div>
 
     <!-- Bottom Navigation -->

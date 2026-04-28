@@ -59,7 +59,7 @@ new #[Layout('layouts.app')] class extends Component
         <!-- Email/Username -->
         <div class="input-group" style="display: flex; align-items: center; border-bottom: 1px solid #e0e0e0; padding: 10px 0; margin-bottom: 15px;">
             <i data-lucide="user" style="color: #9e9e9e; width: 20px; height: 20px; margin-right: 15px;"></i>
-            <input type="text" wire:model.live="email" placeholder="No. Handphone/Email/Username" style="flex: 1; border: none; outline: none; font-size: 14px; padding: 5px 0;">
+            <input type="text" wire:model.live="email" placeholder="Email" style="flex: 1; border: none; outline: none; font-size: 14px; padding: 5px 0;">
         </div>
         @error('email') <div style="color: red; font-size: 12px; margin-top: -10px; margin-bottom: 15px;">{{ $message }}</div> @enderror
 
@@ -80,7 +80,6 @@ new #[Layout('layouts.app')] class extends Component
         <!-- Links -->
         <div style="display: flex; justify-content: space-between; margin-top: 15px; font-size: 13px;">
             <a href="#" style="color: #0b5cff; text-decoration: none;">Daftar</a>
-            <a href="#" style="color: #0b5cff; text-decoration: none;">Log in dengan no. handphone</a>
         </div>
     </form>
 

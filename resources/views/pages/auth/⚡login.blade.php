@@ -5,8 +5,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 
-new #[Layout('layouts.app')] class extends Component
-{
+new #[Layout('layouts.app')] class extends Component {
     #[Validate('required')]
     public $email = '';
 
@@ -24,10 +23,10 @@ new #[Layout('layouts.app')] class extends Component
 
         if (Auth::attempt([$fieldType => $this->email, 'password' => $this->password])) {
             session()->regenerate();
-            return $this->redirect('/', navigate: true);
+            return $this->redirect('/', navigate: false);
         }
 
-        $this->addError('email', 'Kredensial yang diberikan tidak cocok.');
+        $this->addError('email', 'Email atau Password yang anda masukkan salah, silahkan coba lagi.');
     }
 
     public function togglePassword()
@@ -37,49 +36,61 @@ new #[Layout('layouts.app')] class extends Component
 };
 ?>
 
-<div class="shopee-container" style="max-width: 450px; margin: 0 auto; background: white; min-height: 100vh; position: relative; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
+<div class="shopee-container"
+    style="max-width: 450px; margin: 0 auto; background: white; min-height: 100vh; position: relative; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);">
     <!-- Top Navigation -->
-    <div class="top-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid #f0f0f0;">
-        <i data-lucide="arrow-left" style="color: #ee4d2d; cursor: pointer;"></i>
-        <span style="font-size: 18px; flex-grow: 1; margin-left: 15px;">Log In</span>
+    <div class="top-bar"
+        style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid #f0f0f0;">
+        <i data-lucide="arrow-left" style="color: #1e3a8a; cursor: pointer;"></i>
+        <span style="font-size: 18px; flex-grow: 1; margin-left: 15px; font-weight: 600; color: #333;">Log In</span>
         <i data-lucide="help-circle" style="color: #757575; cursor: pointer;"></i>
     </div>
 
     <!-- Logo -->
-    <div class="logo-container" style="display: flex; justify-content: center; margin: 40px 0;">
-        <svg width="70" height="80" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 35 L85 35 L75 95 L25 95 Z" fill="#ee4d2d"/>
-            <path d="M35 35 V25 C35 10, 65 10, 65 25 V35" stroke="#ee4d2d" stroke-width="8" fill="none" stroke-linecap="round"/>
-            <text x="50" y="78" font-family="Arial, sans-serif" font-size="45" fill="white" text-anchor="middle" font-weight="bold">S</text>
-        </svg>
+    <div class="logo-container" style="display: flex; flex-direction: column; align-items: center; margin: 40px 0;">
+        <img src="{{ asset('logo.png') }}" alt="Logo"
+            style="width: 80px; height: 80px; object-fit: contain; margin-bottom: 10px;">
+        <h1 style="font-size: 24px; font-weight: 700; color: #333; margin: 0;">{{ config('app.name') }}</h1>
     </div>
 
     <!-- Login Form -->
     <form wire:submit="login" style="padding: 0 20px;">
         <!-- Email/Username -->
-        <div class="input-group" style="display: flex; align-items: center; border-bottom: 1px solid #e0e0e0; padding: 10px 0; margin-bottom: 15px;">
-            <i data-lucide="user" style="color: #9e9e9e; width: 20px; height: 20px; margin-right: 15px;"></i>
-            <input type="text" wire:model.live="email" placeholder="Email" style="flex: 1; border: none; outline: none; font-size: 14px; padding: 5px 0;">
+        <div class="input-group"
+            style="display: flex; align-items: center; border-bottom: 1px solid #e0e0e0; padding: 10px 0; margin-bottom: 15px;">
+            <i data-lucide="mail" style="color: #9e9e9e; width: 20px; height: 20px; margin-right: 15px;"></i>
+            <input type="text" wire:model.live="email" placeholder="Email"
+                style="flex: 1; border: none; outline: none; font-size: 14px; padding: 5px 0;">
         </div>
-        @error('email') <div style="color: red; font-size: 12px; margin-top: -10px; margin-bottom: 15px;">{{ $message }}</div> @enderror
+        @error('email')
+            <div style="color: red; font-size: 12px; margin-top: -10px; margin-bottom: 15px;">{{ $message }}</div>
+        @enderror
 
         <!-- Password -->
-        <div class="input-group" style="display: flex; align-items: center; border-bottom: 1px solid #e0e0e0; padding: 10px 0; margin-bottom: 25px;">
+        <div class="input-group"
+            style="display: flex; align-items: center; border-bottom: 1px solid #e0e0e0; padding: 10px 0; margin-bottom: 25px;">
             <i data-lucide="lock" style="color: #9e9e9e; width: 20px; height: 20px; margin-right: 15px;"></i>
-            <input type="{{ $showPassword ? 'text' : 'password' }}" wire:model.live="password" placeholder="Password" style="flex: 1; border: none; outline: none; font-size: 14px; padding: 5px 0; width: 100%;">
-            <i wire:click="togglePassword" data-lucide="{{ $showPassword ? 'eye' : 'eye-off' }}" style="color: #9e9e9e; width: 20px; height: 20px; margin-right: 15px; cursor: pointer;"></i>
-            <span style="color: #0b5cff; font-size: 14px; font-weight: 500; cursor: pointer; border-left: 1px solid #e0e0e0; padding-left: 15px;">Lupa?</span>
+            <input type="{{ $showPassword ? 'text' : 'password' }}" wire:model.live="password" placeholder="Password"
+                style="flex: 1; border: none; outline: none; font-size: 14px; padding: 5px 0; width: 100%;">
+            <i wire:click="togglePassword" data-lucide="{{ $showPassword ? 'eye' : 'eye-off' }}"
+                style="color: #9e9e9e; width: 20px; height: 20px; margin-right: 15px; cursor: pointer;"></i>
+            <span
+                style="color: #1e3a8a; font-size: 14px; font-weight: 500; cursor: pointer; border-left: 1px solid #e0e0e0; padding-left: 15px;">Lupa?</span>
         </div>
-        @error('password') <div style="color: red; font-size: 12px; margin-top: -20px; margin-bottom: 20px;">{{ $message }}</div> @enderror
+        @error('password')
+            <div style="color: red; font-size: 12px; margin-top: -20px; margin-bottom: 20px;">{{ $message }}</div>
+        @enderror
 
         <!-- Login Button -->
-        <button type="submit" style="width: 100%; background: {{ $email && $password ? '#ee4d2d' : '#f5f5f5' }}; color: {{ $email && $password ? 'white' : '#bcbcbc' }}; border: none; padding: 12px; border-radius: 2px; font-size: 14px; font-weight: 500; cursor: {{ $email && $password ? 'pointer' : 'default' }}; pointer-events: {{ $email && $password ? 'auto' : 'none' }}; transition: all 0.2s;">
+        <button type="submit"
+            style="width: 100%; background: {{ $email && $password ? 'linear-gradient(135deg, #ee4d2d 0%, #ee4d2d 100%)' : '#f5f5f5' }}; color: {{ $email && $password ? 'white' : '#bcbcbc' }}; border: none; padding: 8px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: {{ $email && $password ? 'pointer' : 'default' }}; pointer-events: {{ $email && $password ? 'auto' : 'none' }}; transition: all 0.3s ease; box-shadow: {{ $email && $password ? '0 4px 12px rgba(30, 58, 138, 0.2)' : 'none' }};">
             Log In
         </button>
 
         <!-- Links -->
-        <div style="display: flex; justify-content: space-between; margin-top: 15px; font-size: 13px;">
-            <a href="#" style="color: #0b5cff; text-decoration: none;">Daftar</a>
+        <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 14px;">
+            <span style="color: #666;">Belum punya akun? <a href="#"
+                    style="color: #1e3a8a; text-decoration: none; font-weight: 600;">Daftar</a></span>
         </div>
     </form>
 
@@ -91,7 +102,10 @@ new #[Layout('layouts.app')] class extends Component
 
         // Listen for livewire updates to re-initialize icons if DOM changes
         document.addEventListener('livewire:initialized', () => {
-            Livewire.hook('morph.updated', ({ el, component }) => {
+            Livewire.hook('morph.updated', ({
+                el,
+                component
+            }) => {
                 lucide.createIcons();
             });
         });

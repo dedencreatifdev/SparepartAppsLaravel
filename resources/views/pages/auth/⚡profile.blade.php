@@ -44,8 +44,8 @@ new #[Layout('layouts.app')] class extends Component {
             <div style="display: flex; align-items: center; gap: 15px;">
                 <div
                     style="width: 65px; height: 65px; border-radius: 50%; background: #ffd0cc; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 2px solid white;">
-                    <img src="https://ui-avatars.com/api/?name={{ urlencode($user->name ?? 'User') }}&background=ffd0cc&color=ee4d2d&size=100"
-                        alt="Avatar" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="{{ asset('image/' . $user->image) }}" alt="Avatar"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div>
                     <div style="font-weight: bold; font-size: 18px; margin-bottom: 6px; letter-spacing: 0.5px;">
@@ -60,7 +60,7 @@ new #[Layout('layouts.app')] class extends Component {
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 25px;">
-            <div style="display: flex; gap: 25px;">
+            {{-- <div style="display: flex; gap: 25px;">
                 <div style="text-align: center;">
                     <div style="font-weight: bold; font-size: 16px;">841</div>
                     <div style="font-size: 11px; opacity: 0.9; margin-top: 2px;">Followers</div>
@@ -74,7 +74,7 @@ new #[Layout('layouts.app')] class extends Component {
                 style="border: 1px solid rgba(255,255,255,0.7); border-radius: 20px; padding: 6px 12px; font-size: 12px; display: flex; align-items: center; gap: 5px; font-weight: 500; cursor: pointer; transition: background 0.2s;">
                 {{ $user->name ?? 'User' }}'s shop <i data-lucide="chevron-right"
                     style="width: 14px; height: 14px;"></i>
-            </div>
+            </div> --}}
         </div>
     </div>
 

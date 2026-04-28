@@ -22,6 +22,7 @@ class ProductFactory extends Factory
         $discountAmount = $price * ($discountPercent / 100);
 
         return [
+            'sku' => $this->faker->unique()->bothify('SKU-####-????'),
             'name' => $this->faker->words(4, true),
             'description' => $this->faker->paragraph(),
             'price' => $price,

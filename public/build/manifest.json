@@ -1,0 +1,26 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-BbtzNi6N.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/shopee.css": {
+    "file": "assets/shopee-amFGSBNQ.css",
+    "name": "shopee",
+    "names": [
+      "shopee.css"
+    ],
+    "src": "resources/css/shopee.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-BLa98ks6.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}

@@ -20,8 +20,8 @@ new #[Layout('layouts.app')] class extends Component {
     style="max-width: 450px; margin: 0 auto; background: #f5f5f5; min-height: 100vh; position: relative; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; overflow-x: hidden;">
     <!-- Top Red Banner -->
     <div class="profile-header"
-        style="background: linear-gradient(to bottom, #ff5722, #ee4d2d); padding: 15px 15px 90px 15px; color: white;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        style="background: linear-gradient(to bottom, #ff5722, #ee4d2d); padding: 15px 15px 60px 15px; color: white;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
             <div style="font-weight: 600; font-size: 18px;">My Profile</div>
             <div style="display: flex; gap: 15px;">
                 <i data-lucide="settings" style="width: 24px; height: 24px; color: white; cursor: pointer;"></i>
@@ -69,41 +69,73 @@ new #[Layout('layouts.app')] class extends Component {
         </div>
     </div>
 
-    <!-- My Purchases Card -->
+    <!-- Setting Card -->
     <div
         style="background: white; border-radius: 12px; margin: -50px 15px 15px 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative; z-index: 10;">
         <div
             style="padding: 15px; border-bottom: 1px solid #f5f5f5; display: flex; justify-content: space-between; align-items: center;">
-            <div style="font-weight: 600; font-size: 14px; color: #333;">My Purchases</div>
+            <div style="font-weight: 600; font-size: 14px; color: #333;">Setting</div>
             <div style="font-size: 12px; color: #757575; display: flex; align-items: center; cursor: pointer;">
                 View All <i data-lucide="chevron-right" style="width: 14px; height: 14px; margin-left: 2px;"></i>
             </div>
         </div>
 
         <div
-            style="display: flex; justify-content: space-between; padding: 20px 15px; border-bottom: 1px solid #f5f5f5;">
-            <div
-                style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; cursor: pointer;">
-                <i data-lucide="wallet" style="width: 24px; height: 24px; color: #555;"></i>
-                <span style="font-size: 11px; color: #555;">To Pay</span>
-            </div>
-            <div
-                style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; cursor: pointer;">
-                <i data-lucide="package" style="width: 24px; height: 24px; color: #555;"></i>
-                <span style="font-size: 11px; color: #555;">To Ship</span>
-            </div>
-            <div
-                style="display: flex; flex-direction: column; align-items: center; gap: 8px; position: relative; flex: 1; cursor: pointer;">
-                <div
-                    style="position: absolute; top: -5px; right: 10px; background: #ee4d2d; color: white; font-size: 9px; font-weight: bold; width: 15px; height: 15px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1.5px solid white;">
-                    1</div>
-                <i data-lucide="truck" style="width: 24px; height: 24px; color: #555;"></i>
-                <span style="font-size: 11px; color: #555;">To Receive</span>
-            </div>
-            <div
-                style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; cursor: pointer;">
-                <i data-lucide="star" style="width: 24px; height: 24px; color: #555;"></i>
-                <span style="font-size: 11px; color: #555;">To Rate</span>
+            style="display: flex; justify-content: space-between; padding: 5px 10px; border-bottom: 1px solid #f5f5f5;">
+
+
+            {{--  --}}
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-icon-box" style="color: #ff9800; background: #fff3e0;"><i data-lucide="ticket"></i>
+                    </div>
+                    <span class="menu-text">Gratis Ongkir dan Voucher</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon-box" style="color: #00bcd4; background: #e0f7fa;"><i
+                            data-lucide="smartphone"></i></div>
+                    <span class="menu-text">Pulsa, Tagihan, dan Tiket</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon-box" style="color: #f44336; background: #ffebee;"><i
+                            data-lucide="shopping-bag"></i></div>
+                    <span class="menu-text">Shopee Mall</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon-box" style="color: #ff5722; background: #fbe9e7;"><i data-lucide="zap"></i>
+                    </div>
+                    <span class="menu-text">ShopeePay Sekitarmu</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon-box" style="color: #4caf50; background: #e8f5e9;"><i data-lucide="moon"></i>
+                    </div>
+                    <span class="menu-text">Shopee Barokah</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon-box" style="color: #2196f3; background: #e3f2fd;"><i data-lucide="gift"></i>
+                    </div>
+                    <span class="menu-text">Hadiah Shopee</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon-box" style="color: #ff5722; background: #fff5f2;"><i
+                            data-lucide="utensils-crossed"></i></div>
+                    <span class="menu-text">ShopeeFood</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon-box" style="color: #3f51b5; background: #e8eaf6;"><i
+                            data-lucide="map-pin"></i></div>
+                    <span class="menu-text">Shopee Pilih Lokal</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon-box" style="color: #ee4d2d; background: #fff5f2;"><i
+                            data-lucide="credit-card"></i></div>
+                    <span class="menu-text">SPayLater</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon-box" style="color: #ff5722; background: #fff5f2;"><i data-lucide="grid"></i>
+                    </div>
+                    <span class="menu-text">Lihat Semua</span>
+                </div>
             </div>
         </div>
 
@@ -126,15 +158,72 @@ new #[Layout('layouts.app')] class extends Component {
         </div>
     </div>
 
-    <!-- My Wallet Card -->
+    <!-- Produk Card -->
     <div
-        style="background: white; border-radius: 12px; margin: 0 15px 85px 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        style="background: white; border-radius: 12px; margin: 0 15px 15px 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
         <div style="padding: 15px; border-bottom: 1px solid #f5f5f5;">
-            <div style="font-weight: 600; font-size: 14px; color: #333;">My Wallet</div>
+            <div style="font-weight: 600; font-size: 14px; color: #333;">Produk</div>
         </div>
 
         <div
-            style="display: grid; grid-template-columns: repeat(4, 1fr); padding: 20px 0; border-bottom: 1px solid #f5f5f5;">
+            style="display: grid; grid-template-columns: repeat(5, 1fr); padding: 20px 0; border-bottom: 1px solid #f5f5f5;">
+            <div
+                style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+                <i data-lucide="boxes" style="width: 24px; height: 24px; color: #ee4d2d; margin-bottom: 8px;"></i>
+                <span style="font-size: 11px; color: #333; margin-bottom: 4px;">Produk List</span>
+            </div>
+            <div
+                style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+                <i data-lucide="coins" style="width: 24px; height: 24px; color: #fbc02d; margin-bottom: 8px;"></i>
+                <span style="font-size: 11px; color: #333; margin-bottom: 4px;">Satuan</span>
+            </div>
+            <div
+                style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+                <i data-lucide="tag" style="width: 24px; height: 24px; color: #ee4d2d; margin-bottom: 8px;"></i>
+                <span style="font-size: 11px; color: #333; margin-bottom: 4px;">Kategori</span>
+            </div>
+            <div
+                style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+                <i data-lucide="package-open"
+                    style="width: 24px; height: 24px; color: #ee4d2d; margin-bottom: 8px;"></i>
+                <span style="font-size: 11px; color: #333; margin-bottom: 4px;">Brand</span>
+            </div>
+            <div
+                style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+                <i data-lucide="gift" style="width: 24px; height: 24px; color: #ee4d2d; margin-bottom: 8px;"></i>
+                <span style="font-size: 11px; color: #333; margin-bottom: 4px;">Promo List</span>
+            </div>
+        </div>
+
+        <a href="{{ route('produk') }}" wire:navigate>
+            <div
+                style="padding: 15px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <svg width="24" height="24" viewBox="0 0 100 100" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="50" fill="#ee4d2d" />
+                        <path d="M25 50 C40 30, 60 70, 75 50" stroke="white" stroke-width="8"
+                            stroke-linecap="round" />
+                    </svg>
+                    <span style="font-size: 13px; color: #333; font-weight: 500;">Daftar Produk</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <span style="font-size: 12px; color: #ee4d2d;">Lihat Semua</span>
+                    <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: #9e9e9e;"></i>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Laporan Card -->
+    <div
+        style="background: white; border-radius: 12px; margin: 0 15px 15px 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <div style="padding: 15px; border-bottom: 1px solid #f5f5f5;">
+            <div style="font-weight: 600; font-size: 14px; color: #333;">Laporan</div>
+        </div>
+
+        <div
+            style="display: grid; grid-template-columns: repeat(5, 1fr); padding: 20px 0; border-bottom: 1px solid #f5f5f5;">
             <div
                 style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
                 <i data-lucide="scan" style="width: 24px; height: 24px; color: #ee4d2d; margin-bottom: 8px;"></i>
@@ -149,9 +238,16 @@ new #[Layout('layouts.app')] class extends Component {
             </div>
             <div
                 style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
-                <i data-lucide="credit-card" style="width: 24px; height: 24px; color: #ee4d2d; margin-bottom: 8px;"></i>
+                <i data-lucide="credit-card"
+                    style="width: 24px; height: 24px; color: #ee4d2d; margin-bottom: 8px;"></i>
                 <span style="font-size: 11px; color: #333; margin-bottom: 4px;">SPayLater</span>
                 <span style="font-size: 9px; color: #ee4d2d; line-height: 1.2;">Get up to<br>Rp50.000.000</span>
+            </div>
+            <div
+                style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+                <i data-lucide="banknote" style="width: 24px; height: 24px; color: #ee4d2d; margin-bottom: 8px;"></i>
+                <span style="font-size: 11px; color: #333; margin-bottom: 4px;">SPinjam</span>
+                <span style="font-size: 9px; color: #ee4d2d; line-height: 1.2;">Get up to<br>Rp12.000.000</span>
             </div>
             <div
                 style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">

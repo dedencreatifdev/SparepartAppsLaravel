@@ -10,6 +10,7 @@ new #[Layout('layouts.app')] class extends Component
     {
         return [
             'products' => Product::latest()->take(10)->get(),
+            'products_promo' => Product::latest()->take(5)->get(),
         ];
     }
 };
@@ -49,10 +50,10 @@ new #[Layout('layouts.app')] class extends Component
                 <img src="/shopee_hero_banner_1777264848107.png" alt="Hero Banner 1" class="hero-image">
             </div>
             <div class="hero-slide">
-                <img src="/shopee_hero_banner_1777264848107.png" alt="Hero Banner 2" class="hero-image" style="filter: hue-rotate(45deg);">
+                <img src="/shopee_promo_banners_1777264868246.png" alt="Hero Banner 2" class="hero-image">
             </div>
             <div class="hero-slide">
-                <img src="/shopee_hero_banner_1777264848107.png" alt="Hero Banner 3" class="hero-image" style="filter: hue-rotate(90deg);">
+                <img src="/shopee_hero_banner_1777264848107.png" alt="Hero Banner 3" class="hero-image">
             </div>
         </div>
         <div class="slider-indicators" id="sliderIndicators">
@@ -167,43 +168,34 @@ new #[Layout('layouts.app')] class extends Component
         </div>
 
         <div class="flash-sale-products">
+            @foreach ($products_promo as $product)
             <div class="fs-product-card">
                 <div class="fs-product-image">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=200&q=80" alt="Watch">
-                    <div class="fs-discount-tag">88%</div>
+                    <img src="{{ $product->image }}" alt="{{ $product->name }}">
+                    <div class="fs-discount-tag">{{ $product->discount }}%</div>
                 </div>
-                <div class="fs-price">Rp1.000</div>
+                <div class="fs-price">Rp{{ number_format($product->price, 0, ',', '.') }}</div>
                 <div class="fs-stock-bar">
                     <div class="fs-stock-fill"></div>
                     <span class="fs-stock-text">Segera Habis</span>
                 </div>
             </div>
-            <div class="fs-product-card">
-                <div class="fs-product-image">
-                    <img src="https://images.unsplash.com/photo-1546868831-d1be1cba0ad2?auto=format&fit=crop&w=200&q=80" alt="Gadget">
-                    <div class="fs-discount-tag">Mall</div>
-                </div>
-                <div class="fs-price">Rp1.000</div>
-                <div class="fs-stock-bar">
-                    <div class="fs-stock-fill" style="width: 40%"></div>
-                    <span class="fs-stock-text">Terjual 36%</span>
-                </div>
-            </div>
-            <div class="fs-product-card">
-                <div class="fs-product-image">
-                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=200&q=80" alt="Glasses">
-                    <div class="fs-discount-tag">36%</div>
-                </div>
-                <div class="fs-price">Rp1.000</div>
-                <div class="fs-stock-bar">
-                    <div class="fs-stock-fill" style="width: 90%"></div>
-                    <span class="fs-stock-text">Hampir Habis</span>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
     <!-- Product List Section -->
+    <div class="recommended-products-header">
+        <div class="recommended-products-title">
+            <span>Rekomendasi</span>
+        </div>
+        <div class="recommended-products-actions">
+            <a wire:navigate href="{{ route('produk') }}"><span>Lihat Semua</span>
+            </a>
+            <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+        </div>
+    </div>
+
     <div class="product-grid" style="margin-bottom: 20px;">
         @foreach($products as $product)
         <div class="product-card">
@@ -251,6 +243,7 @@ new #[Layout('layouts.app')] class extends Component
             </div>
         </div>
         @endforeach
+
     </div>
 
     <!-- Bottom Navigation -->
@@ -280,7 +273,7 @@ new #[Layout('layouts.app')] class extends Component
             setInterval(() => {
                 currentSlide = (currentSlide + 1) % totalSlides;
                 slider.style.transform = `translateX(-${currentSlide * 100}%)`;
-                
+
                 indicators.forEach((ind, index) => {
                     if (index === currentSlide) {
                         ind.classList.add('active');

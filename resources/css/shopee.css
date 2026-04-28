@@ -555,3 +555,33 @@ body {
     font-size: 10px;
     color: #999;
 }
+
+/* Recommended Products Header */
+.recommended-products-header {
+    background: white;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 56px;
+    z-index: 40;
+    margin-top: 10px;
+    border-bottom: 2px solid var(--shopee-orange);
+}
+
+.recommended-products-title span {
+    color: var(--shopee-orange);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.recommended-products-actions {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 12px;
+    gap: 2px;
+    cursor: pointer;
+}

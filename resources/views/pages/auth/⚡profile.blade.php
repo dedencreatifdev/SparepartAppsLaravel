@@ -170,11 +170,13 @@ new #[Layout('layouts.app')] class extends Component {
 
         <div
             style="display: grid; grid-template-columns: repeat(5, 1fr); padding: 20px 0; border-bottom: 1px solid #f5f5f5;">
-            <div
-                style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
-                <i data-lucide="boxes" style="width: 24px; height: 24px; color: #ee4d2d; margin-bottom: 8px;"></i>
-                <span style="font-size: 11px; color: #333; margin-bottom: 4px;">Produk List</span>
-            </div>
+            <a href="{{ route('produk.list') }}" wire:navigate>
+                <div
+                    style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
+                    <i data-lucide="boxes" style="width: 24px; height: 24px; color: #ee4d2d; margin-bottom: 8px;"></i>
+                    <span style="font-size: 11px; color: #333; margin-bottom: 4px;">Produk List</span>
+                </div>
+            </a>
             <div
                 style="display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;">
                 <i data-lucide="coins" style="width: 24px; height: 24px; color: #fbc02d; margin-bottom: 8px;"></i>

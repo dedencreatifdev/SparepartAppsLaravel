@@ -8,6 +8,7 @@ Route::middleware(['auth'])->group(function () {
 
     // PRODUK
     Route::livewire('/produk', 'pages::produk.produk-index')->name('produk');
+    Route::livewire('/produk/list', 'pages::produk.produk-list')->name('produk.list');
 
 });
 

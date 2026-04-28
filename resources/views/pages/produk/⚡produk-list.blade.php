@@ -117,6 +117,8 @@ new class extends Component {
         $this->showImportModal = false;
         $this->importFile = null;
         $this->dispatch('notify', 'Produk berhasil diimport!');
+
+        return $this->redirect(route('produk.list'), navigate: true);
     }
 
     public function with()
@@ -138,10 +140,25 @@ new class extends Component {
         .modal-slide-enter-active { transform: translateX(0); transition: transform 0.5s ease-in-out; }
         .modal-slide-exit { transform: translateX(0); }
         .modal-slide-exit-active { transform: translateX(100%); transition: transform 0.5s ease-in-out; }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 @endpush
 
 <div x-data="{ notification: '' }" @notify.window="notification = $event.detail; setTimeout(() => notification = '', 3000)">
+    <!-- Global Loading Overlay -->
+    <div wire:loading wire:target="import"
+         class="fixed inset-0 z-[3000] flex flex-col items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm">
+        <div class="flex flex-col items-center">
+            <div style="width: 60px; height: 60px; border: 5px solid rgba(255,255,255,0.3); border-top: 5px solid #ee4d2d; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <p style="margin-top: 20px; color: white; font-weight: 700; font-size: 18px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Sedang Mengimport Data...</p>
+            <p style="margin-top: 8px; color: rgba(255,255,255,0.8); font-size: 13px;">Mohon tunggu sampai proses selesai</p>
+        </div>
+    </div>
+
     <!-- Notification -->
     <div x-show="notification"
          x-transition:enter="transition ease-out duration-300"
@@ -202,7 +219,7 @@ new class extends Component {
                             <div style="font-size: 14px; color: #222; font-weight: 600; margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4;">
                                 {{ $product->name }}
                             </div>
-                            <div style="font-size: 11px; color: #888; margin-bottom: 8px; display: flex; align-items: center; gap: 4px;">
+                            <div style="font-size: 11px; color: #757575; margin-bottom: 8px; display: flex; align-items: center; gap: 4px;">
                                 <span style="background: #f5f5f5; padding: 2px 6px; border-radius: 2px;">SKU: {{ $product->sku }}</span>
                             </div>
                         </div>
@@ -421,12 +438,15 @@ new class extends Component {
 
                 <div style="display: flex; gap: 12px;">
                     <button @click="$wire.showImportModal = false"
-                            style="flex: 1; background: #f5f5f5; color: #555; border: none; padding: 10px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 13px;">
+                            style="flex: 1; background: #f5f5f5; color: #555; border: none; padding: 10px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 14px;">
                         Batal
                     </button>
                     <button @click="$wire.import()"
-                            style="flex: 1; background: #1890ff; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 13px; box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);">
-                        Import
+                            wire:loading.attr="disabled"
+                            wire:target="import"
+                            style="flex: 1; background: #1890ff; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 13px; box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3); display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <span wire:loading.remove wire:target="import">Import</span>
+                        <span wire:loading wire:target="import">Processing...</span>
                     </button>
                 </div>
             </div>

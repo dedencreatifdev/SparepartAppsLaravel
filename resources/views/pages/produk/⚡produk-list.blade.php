@@ -127,7 +127,7 @@ new class extends Component {
             'products' => Product::where('name', 'like', '%' . $this->search . '%')
                 ->orWhere('sku', 'like', '%' . $this->search . '%')
                 ->latest()
-                ->paginate(10),
+                ->simplePaginate(),
         ];
     }
 };

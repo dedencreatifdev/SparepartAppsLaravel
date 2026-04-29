@@ -56,7 +56,8 @@ new class extends Component {
             case 'terkait':
             default:
                 // Default sorting
-                $query->latest();
+                // $query->latest();
+                $query->orderBy('sku', 'asc');
                 break;
         }
 

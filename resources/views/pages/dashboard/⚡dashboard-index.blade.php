@@ -69,7 +69,7 @@ new #[Layout('layouts.app')] class extends Component
             <div class="wallet-item">
                 <div style="display: flex; align-items: center; gap: 4px;">
                     <i data-lucide="wallet" style="width: 14px; height: 14px; color: #ee4d2d;"></i>
-                    <span class="wallet-label">Rp0.00</span>
+                    <span class="wallet-label">Rp0.-</span>
                 </div>
                 <span class="wallet-subtext">Isi Saldo</span>
             </div>
